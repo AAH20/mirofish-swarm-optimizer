@@ -50,6 +50,88 @@ class ConsensusRankingResult:
     execution_time_us: float
 
 @dataclass
+class AttentionTier:
+    tier_id: int
+    name: str
+    token_cost: int
+    fidelity_multiplier: float
+
+@dataclass
+class AttentionAllocationResult:
+    agent_tier_map: Dict[str, AttentionTier]
+    total_tokens_used: int
+    budget_limit: int
+    total_decision_fidelity: float
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
+class CFRResult:
+    equilibrium_strategies: Dict[str, Dict[str, float]]  # agent_id -> action -> prob
+    expected_payoffs: Dict[str, float]
+    iterations: int
+    exploitability: float
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
+class MemoryItem:
+    item_id: str
+    entity_tag: str
+    content: str
+    salience_score: float
+    timestamp: float
+    embedding_vector: List[float]
+
+@dataclass
+class MemorySummaryResult:
+    selected_items: List[MemoryItem]
+    total_coverage_score: float
+    diversity_metric: float
+    reduction_ratio: float
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
+class QuarantineResult:
+    quarantined_cluster: List[str]
+    authentic_agents: List[str]
+    cheeger_conductance: float
+    spectral_fiedler_gap: float
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
+class TaskActivity:
+    task_id: str
+    agent_id: str
+    duration: float
+    predecessors: List[str]
+    required_worker: int
+
+@dataclass
+class ScheduleResult:
+    task_start_times: Dict[str, float]
+    makespan: float
+    resource_utilization: float
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
+class ParetoSolution:
+    solution_id: str
+    objective_values: List[float]  # All to be maximized
+    parameter_payload: Dict[str, Any]
+
+@dataclass
+class ParetoFrontierResult:
+    non_dominated_solutions: List[ParetoSolution]
+    hypervolume_indicator: float
+    dominated_count: int
+    algorithm: str
+    execution_time_us: float
+
+@dataclass
 class BenchmarkComparison:
     problem_name: str
     optimizer_algorithm: str

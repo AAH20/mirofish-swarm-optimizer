@@ -1,36 +1,57 @@
-"""MiroFish Swarm Optimizer: Hard Mathematical Solvers for Swarm Intelligence Simulation."""
+"""
+MiroFish Swarm Optimizer: NP-Hard Multi-Agent Simulation Engine.
+Exceeding Evolutionary Algorithms (GA, PSO, ACO, NSGA-II) through exact dynamic programming,
+submodular guarantees, spectral graph theory, and tournament elimination.
+"""
+
 from .core.models import (
-    SwarmAgent, AgentFaction, Coalition, CoalitionStructureResult,
-    InfluenceResult, ConsensusRankingResult, BenchmarkComparison
+    AgentFaction, SwarmAgent, Coalition, CoalitionStructureResult,
+    InfluenceResult, ConsensusRankingResult, BenchmarkComparison,
+    AttentionTier, AttentionAllocationResult, CFRResult, MemoryItem,
+    MemorySummaryResult, QuarantineResult, TaskActivity, ScheduleResult,
+    ParetoSolution, ParetoFrontierResult
 )
 from .core.coalition_structure import OptimalCoalitionStructureSolver
 from .core.influence_maximizer import InfluenceMaximizer
 from .core.kemeny_consensus import KemenyConsensusSolver
 from .core.topology_sparsifier import TopologySparsifier
-from .core.evolutionary_baselines import GeneticAlgorithmCSG, ParticleSwarmInfluenceMaximizer
+from .core.attention_knapsack import CognitiveAttentionKnapsackSolver
+from .core.strategic_cfr import StrategicCFRSolver
+from .core.memory_summarizer import SubmodularMemorySummarizer
+from .core.spectral_quarantine import SpectralSybilQuarantine
+from .core.disjunctive_scheduler import DisjunctiveEventScheduler
+from .core.pareto_frontier import ParetoFrontierSolver
 from .engine import MiroFishSwarmEngine
-from .adapters.geopolitical import run_geopolitical_benchmark, build_geopolitical_agents
-from .adapters.financial_markets import run_financial_benchmark, build_financial_agents
-
-__version__ = "1.0.0"
 
 __all__ = [
-    "SwarmAgent",
     "AgentFaction",
+    "SwarmAgent",
     "Coalition",
     "CoalitionStructureResult",
     "InfluenceResult",
     "ConsensusRankingResult",
     "BenchmarkComparison",
+    "AttentionTier",
+    "AttentionAllocationResult",
+    "CFRResult",
+    "MemoryItem",
+    "MemorySummaryResult",
+    "QuarantineResult",
+    "TaskActivity",
+    "ScheduleResult",
+    "ParetoSolution",
+    "ParetoFrontierResult",
     "OptimalCoalitionStructureSolver",
     "InfluenceMaximizer",
     "KemenyConsensusSolver",
     "TopologySparsifier",
-    "GeneticAlgorithmCSG",
-    "ParticleSwarmInfluenceMaximizer",
+    "CognitiveAttentionKnapsackSolver",
+    "StrategicCFRSolver",
+    "SubmodularMemorySummarizer",
+    "SpectralSybilQuarantine",
+    "DisjunctiveEventScheduler",
+    "ParetoFrontierSolver",
     "MiroFishSwarmEngine",
-    "run_geopolitical_benchmark",
-    "build_geopolitical_agents",
-    "run_financial_benchmark",
-    "build_financial_agents",
 ]
+
+__version__ = "1.1.0"
